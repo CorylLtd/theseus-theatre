@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import heroImg from '../assets/theseus-hero.png'
+import heroImg from '../assets/theseus-hero.webp'
 import { btn, btnGhost } from '../ui'
 
 const Hero = forwardRef<HTMLDivElement>(function Hero(_props, figRef) {

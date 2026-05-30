@@ -1,4 +1,4 @@
-import oedipusImg from '../assets/oedipus-rex.png'
+import oedipusImg from '../assets/oedipus-rex.webp'
 import { btn, btnGhost } from '../ui'
 
 export default function Production() {
