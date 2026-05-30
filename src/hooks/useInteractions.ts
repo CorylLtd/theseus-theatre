@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, type RefObject } from 'react'
 
 /**
  * Reveals every [data-reveal] element once it scrolls into view, mirroring the
@@ -15,7 +15,7 @@ export function useScrollReveal() {
           }
         })
       },
-      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
     )
     document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el))
     return () => io.disconnect()
@@ -26,7 +26,10 @@ export function useScrollReveal() {
  * Docks the nav after the hero, drives the vertical hero parallax on scroll,
  * and the subtle mouse parallax on the hero figure — exactly as the prototype.
  */
-export function useHeroMotion(navRef, figRef) {
+export function useHeroMotion(
+  navRef: RefObject<HTMLElement>,
+  figRef: RefObject<HTMLDivElement>,
+) {
   useEffect(() => {
     const nav = navRef.current
     const fig = figRef.current
@@ -41,7 +44,7 @@ export function useHeroMotion(navRef, figRef) {
       }
     }
 
-    const onMouseMove = (e) => {
+    const onMouseMove = (e: MouseEvent) => {
       if (!fig || window.scrollY > window.innerHeight) return
       const dx = e.clientX / window.innerWidth - 0.5
       const dy = e.clientY / window.innerHeight - 0.5
