@@ -12,7 +12,7 @@ export default function Footer() {
           </div>
           <div className="foot-col">
             <h4>Get in Touch</h4>
-            <a href="mailto:theseustheatre@uea.ac.uk">theseustheatre@uea.ac.uk</a>
+            <a href="mailto:contactus@theseustheatre.com">contactus@theseustheatre.com</a>
             <a href="#">Box Office</a>
             <a href="#">Press &amp; Hire</a>
           </div>
