@@ -26,7 +26,7 @@ export default function Join() {
         <div className="grid grid-cols-2 gap-17.5 items-center max-[1000px]:grid-cols-1 max-[1000px]:gap-11">
           <div data-reveal>
             <div className="text-[clamp(24px,3vw,36px)] font-display font-semibold leading-[1.2]">
-              There's a role for you — onstage or off of it.
+              There's a role for you — onstage or off it.
             </div>
             <p className="text-bone-dim mt-6 mb-8 max-w-[46ch]">
               Whether you want to act, direct, build, light, or simply pull a pint at the bar on opening
