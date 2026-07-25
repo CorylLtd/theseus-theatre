@@ -40,7 +40,17 @@ export default function Footer() {
         </div>
         <div className="flex justify-between flex-wrap gap-3.5 mt-17.5 pt-6.5 border-t border-line font-mono text-[11px] tracking-[0.14em] uppercase text-muted">
           <span>© 2026 Theseus Theatre — UEA</span>
-          <span>Made for the light · Norwich</span>
+          <span>
+            Made for the light · Norwich ·{' '}
+            <a
+              href="https://www.coryl.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-gold-bright"
+            >
+              Site by Coryl Ltd.
+            </a>
+          </span>
         </div>
       </div>
     </footer>

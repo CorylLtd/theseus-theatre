@@ -138,3 +138,37 @@ nav.docked {
 [data-reveal][data-delay="3"] {
   transition-delay: 0.36s;
 }
+
+/* the "A.I." poster signature: mostly still, then a brief RGB-split stutter
+   every few seconds — as if the site itself can't tell whether it's slop.
+   steps(1) keeps the jitter digital rather than smooth. */
+.ai-monogram {
+  animation: slop-glitch 6.5s steps(1) infinite;
+}
+@keyframes slop-glitch {
+  0%,
+  4%,
+  100% {
+    text-shadow: none;
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  1% {
+    text-shadow: -2px 0 var(--color-blood-bright), 2px 0 var(--color-gold);
+    transform: translate(1px, -1px);
+  }
+  2% {
+    text-shadow: 2px 0 var(--color-blood-bright), -2px 0 var(--color-gold);
+    transform: translate(-1px, 1px);
+    opacity: 0.82;
+  }
+  3% {
+    text-shadow: -1px 0 var(--color-blood-bright), 1px 0 var(--color-gold);
+    transform: translate(0, 1px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-monogram {
+    animation: none;
+  }
+}

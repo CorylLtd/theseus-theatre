@@ -41,6 +41,9 @@ pnpm-debug.log*
 .idea/
 *.sw?
 
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
 # OS
 .DS_Store
 Thumbs.db
