@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 
 const ITEMS = [
-  'Now Casting', 'Oedipus Rex — Summer 2026', 'Open-Air at UEA', 'Auditions Open',
+  'Now Casting', "We're Not Sloppy! — September 2026", 'Open-Air at UEA', 'Auditions Open',
 ]
 
 function MarqueeRun() {
