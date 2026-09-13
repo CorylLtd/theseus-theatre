@@ -173,105 +173,219 @@ nav.docked {
   }
 }
 
-/* ---------- under-construction "Intermission" page ---------- */
+/* ---------- under-construction "Intermission" page (open-air) ---------- */
 
-/* a warm follow-spot on the notice, and the boards it stands on */
-.spotlight {
-  background: radial-gradient(60% 55% at 50% 42%, rgba(217, 191, 142, 0.16) 0%, rgba(217, 191, 142, 0.05) 40%, transparent 72%);
-}
-.stage-floor {
+/* a clear night: near-black warming to a faint horizon glow behind the trees */
+.sky {
   background:
-    repeating-linear-gradient(90deg, transparent 0 140px, rgba(0, 0, 0, 0.35) 140px 141px),
-    linear-gradient(180deg, transparent 0%, rgba(21, 16, 11, 0.9) 60%, var(--color-bg2) 100%);
-  border-top: 1px solid rgba(194, 160, 98, 0.18);
+    radial-gradient(70% 45% at 50% 100%, rgba(194, 160, 98, 0.10) 0%, transparent 70%),
+    linear-gradient(180deg, #05060b 0%, #0a0b12 45%, #100c09 80%, var(--color-bg) 100%);
 }
 
-/* velvet drapes: pleats from a repeating gradient, shaded so they read as folds */
-.curtain {
+/* two star fields at different scales, twinkling out of phase */
+.stars {
+  background-repeat: repeat;
+  animation: twinkle 5s ease-in-out infinite;
+}
+.stars-a {
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(236, 228, 211, 0.9), transparent 60%),
+    radial-gradient(1px 1px at 33% 42%, rgba(236, 228, 211, 0.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 57% 9%, rgba(236, 228, 211, 0.95), transparent 60%),
+    radial-gradient(1px 1px at 78% 31%, rgba(236, 228, 211, 0.6), transparent 60%),
+    radial-gradient(1.2px 1.2px at 91% 62%, rgba(236, 228, 211, 0.8), transparent 60%),
+    radial-gradient(1px 1px at 46% 71%, rgba(236, 228, 211, 0.55), transparent 60%),
+    radial-gradient(1.4px 1.4px at 21% 84%, rgba(236, 228, 211, 0.85), transparent 60%);
+  background-size: 420px 420px;
+}
+.stars-b {
+  background-image:
+    radial-gradient(1px 1px at 8% 54%, rgba(217, 191, 142, 0.7), transparent 60%),
+    radial-gradient(1.6px 1.6px at 27% 12%, rgba(236, 228, 211, 0.9), transparent 60%),
+    radial-gradient(1px 1px at 64% 48%, rgba(236, 228, 211, 0.6), transparent 60%),
+    radial-gradient(1.3px 1.3px at 83% 8%, rgba(236, 228, 211, 0.8), transparent 60%),
+    radial-gradient(1px 1px at 52% 89%, rgba(217, 191, 142, 0.6), transparent 60%),
+    radial-gradient(1.2px 1.2px at 96% 79%, rgba(236, 228, 211, 0.75), transparent 60%);
+  background-size: 610px 610px;
+  animation-delay: -2.5s;
+}
+.stars-c {
+  background-image:
+    radial-gradient(1.8px 1.8px at 18% 30%, #fff, transparent 60%),
+    radial-gradient(1.4px 1.4px at 71% 22%, #fff, transparent 60%),
+    radial-gradient(1.6px 1.6px at 44% 58%, #fff, transparent 60%),
+    radial-gradient(1.2px 1.2px at 88% 44%, #fff, transparent 60%),
+    radial-gradient(1.5px 1.5px at 6% 76%, #fff, transparent 60%);
+  background-size: 760px 760px;
+  animation: twinkle-sharp 2.8s ease-in-out infinite;
+  animation-delay: -1.1s;
+}
+@keyframes twinkle-sharp {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* a shooting star: a streak whose bright head leads, flying down and to the right */
+.meteor {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50vw;
-  z-index: 5;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 18%, transparent 70%, rgba(0, 0, 0, 0.55) 100%),
-    repeating-linear-gradient(
-      90deg,
-      #4a0c08 0px,
-      #7a1810 22px,
-      #9a2418 34px,
-      #6b140d 48px,
-      #3e0a06 64px
-    );
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
-  animation: curtain-part 2.2s var(--ease-curtain) 0.3s both;
-}
-.curtain-left {
-  left: 0;
-  --part: translateX(-78%);
-  border-right: 6px solid var(--color-gold);
-}
-.curtain-right {
-  right: 0;
-  --part: translateX(78%);
-  border-left: 6px solid var(--color-gold);
-}
-/* the swag along the leading edge: a gold cord tieback */
-.curtain::after {
-  content: "";
-  position: absolute;
-  top: 46%;
-  width: 60%;
-  height: 10px;
-  background: linear-gradient(90deg, transparent, var(--color-gold) 30%, var(--color-gold-bright) 50%, var(--color-gold) 70%, transparent);
-  opacity: 0.85;
+  z-index: 3;
+  width: var(--len);
+  height: 2px;
   border-radius: 999px;
+  pointer-events: none;
+  transform-origin: left center;
+  background: linear-gradient(90deg, transparent, rgba(236, 228, 211, 0.55) 60%, #fff 100%);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+  animation: meteor-fly linear both;
 }
-.curtain-left::after {
-  right: -2px;
+@keyframes meteor-fly {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(55vw);
+    opacity: 0;
+  }
 }
-.curtain-right::after {
-  left: -2px;
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
 }
-@keyframes curtain-part {
+
+/* a gibbous moon, high and to the right */
+.moon {
+  top: 12vh;
+  right: 16vw;
+  width: clamp(56px, 7vw, 96px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #f3ecdc 0%, #d9cfb8 55%, #b9ad94 100%);
+  box-shadow:
+    inset -14px -8px 26px rgba(30, 24, 14, 0.45),
+    0 0 40px rgba(236, 228, 211, 0.25),
+    0 0 120px rgba(236, 228, 211, 0.12);
+  z-index: 1;
+}
+
+/* silhouetted treeline with a strip of meadow */
+.treeline {
+  z-index: 2;
+}
+.trees-far {
+  fill: #0b0a0c;
+}
+.trees-near {
+  fill: #050405;
+}
+.meadow {
+  fill: #07090a;
+}
+
+/* the eye adjusts: a black scrim over the scene lifts as the bulbs come on */
+.night {
+  background: #000;
+  z-index: 4;
+  animation: scrim-lift 2.6s ease-out 0.4s both;
+}
+@keyframes scrim-lift {
   from {
-    transform: translateX(0);
+    opacity: 1;
   }
   to {
-    transform: var(--part);
+    opacity: 0;
   }
 }
 
-/* pelmet across the top with a gold fringe */
-.pelmet {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  z-index: 6;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent),
-    repeating-linear-gradient(90deg, #4a0c08 0px, #7a1810 22px, #9a2418 34px, #6b140d 48px, #3e0a06 64px);
-  border-bottom: 3px solid var(--color-gold);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+/* follow-spot: a warm cone from the top that swings in and lands on the notice */
+.followspot {
+  z-index: 7;
+  transform-origin: 50% 0%;
+  background: linear-gradient(180deg, rgba(255, 236, 196, 0.22) 0%, rgba(255, 236, 196, 0.10) 40%, rgba(255, 236, 196, 0.03) 75%, transparent 100%);
+  clip-path: polygon(50% -4%, 14% 104%, 86% 104%);
+  mix-blend-mode: screen;
+  animation: spot-swing 1.9s var(--ease-curtain) 1.9s both;
 }
-.pelmet::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -14px;
-  height: 14px;
-  background: radial-gradient(circle at 7px 0, var(--color-gold) 6px, transparent 7px) 0 0 / 14px 14px repeat-x;
-  opacity: 0.9;
+@keyframes spot-swing {
+  0% {
+    opacity: 0;
+    transform: rotate(-26deg);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
 }
 
-/* the notice fades up once the curtains have parted */
+/* festoon lights strung across the top on a sagging wire */
+.festoon {
+  height: clamp(90px, 10vw, 140px);
+  z-index: 6;
+  overflow: visible;
+}
+.wire {
+  fill: none;
+  stroke: rgba(236, 228, 211, 0.35);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.bulb-cord {
+  stroke: rgba(236, 228, 211, 0.4);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.bulb-glow {
+  fill: var(--color-gold-bright);
+  opacity: 0.18;
+  filter: blur(6px);
+}
+.bulb-glass {
+  fill: #ffe9b8;
+  filter: drop-shadow(0 0 6px rgba(255, 233, 184, 0.9)) drop-shadow(0 0 14px rgba(217, 191, 142, 0.6));
+}
+.bulb {
+  animation:
+    bulb-on 0.35s ease-out both,
+    bulb-flicker 4.2s ease-in-out infinite;
+}
+@keyframes bulb-on {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bulb-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+/* the notice fades up once the spot has landed */
 .notice {
-  animation: notice-in 1.2s var(--ease-curtain) 1.4s both;
+  animation: notice-in 1.2s var(--ease-curtain) 2.5s both;
 }
 @keyframes notice-in {
   from {
@@ -285,22 +399,27 @@ nav.docked {
 }
 
 @media (max-width: 760px) {
-  .curtain-left {
-    --part: translateX(-86%);
+  .followspot {
+    clip-path: polygon(50% -4%, -10% 104%, 110% 104%);
   }
-  .curtain-right {
-    --part: translateX(86%);
-  }
-  .pelmet {
-    height: 44px;
+  .moon {
+    top: 14vh;
+    right: 10vw;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .curtain,
-  .notice {
+  .night,
+  .followspot,
+  .notice,
+  .stars,
+  .bulb {
     animation: none;
   }
-  .curtain {
-    transform: var(--part);
+  .night {
+    opacity: 0;
+  }
+  .followspot {
+    opacity: 1;
+    transform: none;
   }
 }
