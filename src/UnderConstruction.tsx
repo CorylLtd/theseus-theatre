@@ -17,7 +17,7 @@ export default function UnderConstruction() {
       <div className="pelmet" aria-hidden="true"></div>
 
       {/* the notice */}
-      <section className="relative z-10 w-full max-w-3xl mx-auto px-[8vw] py-24 text-center notice">
+      <section className="relative z-10 w-full max-w-5xl mx-auto px-[6vw] py-24 text-center notice">
         <div className="flex items-center justify-center gap-4 mb-8">
           <span className="h-px w-10 bg-gold opacity-70 max-[760px]:hidden"></span>
           <span className="font-mono text-[11px] tracking-[0.32em] max-[760px]:tracking-[0.2em] uppercase text-gold">
@@ -31,7 +31,7 @@ export default function UnderConstruction() {
         </p>
 
         <h1 className="font-display font-extrabold leading-[1.04] tracking-[0.02em] [text-shadow:0_8px_60px_rgba(0,0,0,0.85)]">
-          <span className="block text-bone text-[clamp(38px,9vw,120px)]">Intermission</span>
+          <span className="block text-bone text-[clamp(38px,7vw,104px)] whitespace-nowrap">Intermission</span>
         </h1>
 
         <p className="mt-7 font-display text-[clamp(16px,2vw,22px)] tracking-[0.12em] uppercase text-gold-bright">
