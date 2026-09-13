@@ -178,8 +178,8 @@ nav.docked {
 /* a clear night: near-black warming to a faint horizon glow behind the trees */
 .sky {
   background:
-    radial-gradient(55% 22% at 50% 78%, rgba(217, 191, 142, 0.34) 0%, rgba(194, 160, 98, 0.16) 45%, transparent 100%),
-    radial-gradient(110% 40% at 50% 82%, rgba(184, 54, 42, 0.22) 0%, rgba(143, 29, 20, 0.10) 50%, transparent 100%),
+    radial-gradient(55% 34% at 50% 100%, rgba(217, 191, 142, 0.34) 0%, rgba(194, 160, 98, 0.16) 45%, transparent 100%),
+    radial-gradient(110% 55% at 50% 100%, rgba(184, 54, 42, 0.22) 0%, rgba(143, 29, 20, 0.10) 50%, transparent 100%),
     linear-gradient(180deg, #05060b 0%, #0a0b12 40%, #17110c 78%, var(--color-bg) 100%);
 }
 
