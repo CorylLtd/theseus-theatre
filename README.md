@@ -16,6 +16,12 @@ npm run build    # production build into dist/
 npm run preview  # preview the build
 ```
 
+## Under construction mode
+
+`src/main.tsx` has an `UNDER_CONSTRUCTION` flag. While it is `true` the whole site is
+replaced by the "Intermission" holding page in `src/UnderConstruction.tsx`. Set it to
+`false` to restore normal service.
+
 ## Structure
 
 ```
